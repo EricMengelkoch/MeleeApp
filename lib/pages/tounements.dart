@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:melee_app/helpers/tourneycard.dart';
 
 class Tourney extends StatefulWidget {
   const Tourney({super.key});
@@ -123,6 +124,36 @@ class _LocalsState extends State<Locals> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.orange[600],
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(
+                  Icons.location_on_outlined,
+                ),
+                Text("Display Location"),
+                Icon(
+                  Icons.social_distance,
+                ),
+                Icon(
+                  Icons.settings,
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 30,
+              itemBuilder: (BuildContext context, int index) {
+                return TourneyCard(index: index, context: context);
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
