@@ -11,7 +11,7 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
 
   void loadUser() async {
-    await Future.delayed(const Duration(seconds: 2), (){});
+    await Future.delayed(const Duration(milliseconds: 250), (){});
     Navigator.pushReplacementNamed(context, '/home');
   }
 
